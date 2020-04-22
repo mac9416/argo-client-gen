@@ -3,6 +3,7 @@ package io.argoproj.workflow;
 import io.argoproj.workflow.apis.WorkflowServiceApi;
 import io.argoproj.workflow.models.Workflow;
 import io.argoproj.workflow.models.WorkflowCreateRequest;
+import io.argoproj.workflow.models.WorkflowList;
 
 public class ArgoServerAPI {
   /*
@@ -18,5 +19,9 @@ public class ArgoServerAPI {
 
   public Workflow createWorkflow(Workflow wf) throws ApiException {
     return api.createWorkflow("argo", new WorkflowCreateRequest().workflow(wf));
+  }
+
+  public WorkflowList listWorkflows() throws ApiException {
+    return api.listWorkflows("argo", null, null, false, false, null, null, null, null, null);
   }
 }
